@@ -1,17 +1,10 @@
 import React from 'react';
-// import ReactDOM from 'react-dom';
 import * as ReactDOMClient from 'react-dom/client'; 
 import './index.scss';
 import App from '../src/Components/App/App';
 import { BrowserRouter } from 'react-router-dom';
 import reportWebVitals from './reportWebVitals';
 
-// ReactDOM.render(
-//   <React.StrictMode>
-//     <App />
-//   </React.StrictMode>,
-//   document.getElementById('root')
-// );
 const rootElement = document.getElementById('root');
 ReactDOMClient.createRoot(rootElement).render(<BrowserRouter>
   <App />
