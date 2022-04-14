@@ -1,11 +1,11 @@
 import './ArticleSummary.scss';
 import { Link } from 'react-router-dom';
 
-const ArticleSummary = () => {
+const ArticleSummary = ({ title, abstract, subsection }) => {
   return (
-      <Link path='details'>
-        <h2>Article Title</h2>
-        <p>details</p>
+      <Link to={ subsection }>
+      <h2>{ title }</h2>
+      <p>{ abstract }</p>
       </Link>
   )
 };
