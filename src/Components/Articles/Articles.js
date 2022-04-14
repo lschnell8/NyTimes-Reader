@@ -2,10 +2,15 @@ import './Articles.scss';
 import '../ArticleSummary/ArticleSummary';
 import ArticleSummary from '../ArticleSummary/ArticleSummary';
 
-const Articles = (stories) => {
-  const news = stories.map(story => {
+const Articles = ({ newsStories }) => {
+  const news = newsStories.map((story, i) => {
     return (
-      <ArticleSummary key={ story.id } title={ story.title } details={ story.details } />
+      <ArticleSummary
+        key={i}
+        title={story.title}
+        abstract={story.abstract}
+        subsection={story.subsection}
+      />
     )
   })
   return (
