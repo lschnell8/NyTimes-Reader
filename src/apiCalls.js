@@ -5,6 +5,10 @@ export const fetchData = (section) => {
         return response.json();
       } else {
         return response.status
-    }
+      }
+    })
+    .catch(error => {
+      console.log(error)
+      return error
     })
 };
