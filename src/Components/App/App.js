@@ -1,38 +1,38 @@
 import './App.scss';
-import { useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { fetchData } from '../../apiCalls';
 import { Route, Routes } from 'react-router-dom';
 import Header from '../Header/Header';
+import Home from '../Home/Home';
 import ArticleDetails from '../ArticleDetails/ArticleDetails';
-import Articles from '../Articles/Articles';
 
 const App = () => {
+  const [newsStories, setNewsStories] = useState([]);
+  const [err, setError] = useState(0);
 
   useEffect (() => {
-    fetchData('world')
-      .then(response => {
-        if (response.ok) {
-          console.log(response)
-          return response.json();
-        } else {
-          console.log(response.status)
-          return response.status
-      }
-      })
+    fetchData('home')
       .then(data => {
-      console.log(data.results)
+        setNewsStories([...data.results])
+        return newsStories
       })
       .catch(error => {
-      console.log(error)
-    })
+        setError(error.status)
+        console.log(err)
+        return err
+      })
+    console.log('useEffect', newsStories)
   }, [])
 
   return (
-    <Routes>
-        <Route path='/' element={ <Header /> } />
-        <Route path='/' element={ <Articles /> } />
+    <main>
+      {console.log('Render', newsStories)}
+      <Header />
+      <Routes>
+        <Route path='/' element={ <Home newsStories={newsStories} /> } />
         <Route path='details' element={ <ArticleDetails /> } />
-    </Routes>
+      </Routes>
+    </main>
   )
 };
 
