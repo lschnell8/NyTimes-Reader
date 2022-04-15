@@ -35,7 +35,6 @@ const App = () => {
       console.log('ERR', err)
       return err
     })
-    console.log('STORIES', currentTopic)
   }, [location])
 
   const findDetails = () => {
@@ -46,7 +45,6 @@ const App = () => {
       let article = newsStories.find(story => {
         return story.created_date === currentTopic[2]
       });
-      console.log('FIND ARTICLE', article)
       return article
     }
   }
@@ -59,7 +57,6 @@ const App = () => {
           <Route path={`${currentTopic[1]}`} element={<Articles newsStories={newsStories} />} />
         </Route>
         <Route path={`${currentTopic[1]}/${currentTopic[2]}`} element={<ArticleDetails article={ findDetails() }/> } />
-        {/* <Route path={`:topic/${currentTopic[2]}`}  element={<ArticleDetails article={ findDetails() }/> } /> */}
         <Route path='*' element={err > 0 && <p> { err } Oops, there's trouble afoot. Please try again.</p> }/>
       </Routes>
     </main>

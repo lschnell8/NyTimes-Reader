@@ -1,7 +1,6 @@
 import './ArticleDetails.scss';
 
 const ArticleDetails = ({ article }) => {
-  console.log('DETAILS', article)
   return (
     <section className='article-details'>
       <article className='image-and-caption'>
