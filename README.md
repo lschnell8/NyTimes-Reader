@@ -45,23 +45,22 @@ On the landing page, the user will see a list of topics as well as summaries for
 
  - Click a topic and a new set of summaries is displayed. All stories are categorized within the topic selected.
 
-![select-topic]()
+![NYT-select-topic](https://user-images.githubusercontent.com/78449313/163577362-fdfe781e-6ef9-44f1-9618-8c1851255e55.gif)
+
 
   - Click an article summary and route to a new location to see extended information about the article as well as a link to the full article on the NYT site. 
 
-![select-summary]()
+![NYT-select-summary](https://user-images.githubusercontent.com/78449313/163577907-8071416f-5651-4ca7-abc2-f0883a150ff1.gif)
 
   - Click the Read Full Article button to open a new window and read the full article on the official NYT site.
 
-![See Full Article]()
+![NYT-See-Full-Article](https://user-images.githubusercontent.com/78449313/163590061-a40e1948-ebbe-4e05-a88f-65eea4d22683.gif)
 
-  - Fully Mobile Responsive
-    
-    ![mobile-responsive]()
+
    
   - 100% Accessible
 
-    ![accessibility-score]()
+![accessibility-score](https://user-images.githubusercontent.com/78449313/163581291-cfa37de6-a22c-4504-a039-4e90d5a16c59.png)
 
 ## Code Architecture
 
@@ -116,15 +115,5 @@ Cypress was used for E2E and integration testing. To test the application:
     <a href="https://www.linkedin.com/in/lindsay-schnell/"> 
     <img src="https://img.shields.io/badge/linkedin-%230077B5.svg?style=for-the-badge&logo=linkedin&logoColor=white" />
     </a>
-
-### Project Manager
-  Nik Seif (she/her)<br> 
-    <a href="https://github.com/niksseif/"> 
-    <img src="https://img.shields.io/badge/github-%23121011.svg?style=for-the-badge&logo=github&logoColor=white" />
-    </a> 
-    <a href="https://www.linkedin.com/in/nik-seif/"> 
-    <img src="https://img.shields.io/badge/linkedin-%230077B5.svg?style=for-the-badge&logo=linkedin&logoColor=white" />
-    </a>
-
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
