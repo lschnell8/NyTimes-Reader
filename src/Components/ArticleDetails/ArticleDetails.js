@@ -1,23 +1,22 @@
 import './ArticleDetails.scss';
-// import { Link } from 'react-router-dom';
 
 const ArticleDetails = ({ article }) => {
   console.log('DETAILS', article)
   return (
-    <section>
-      <h2>{article.title}</h2>
-          <section>
-            <img src={`${article.multimedia[1].url}`} alt={`${article.multimedia[1].caption}`} />
-            <p>{article.multimedia[1].caption}</p>
-            <p>{article.multimedia[1].copyright}</p>
-          </section>
-      <p>{article.byline}</p>
-      <p>{article.published_date}</p>
-      {/* <Link reloadDocument replace={article.url}>
-        <p>{article.url}</p>
-      </ Link> */}
-       <a target='_blank' rel='noreferrer' href={`${article.url}`}>{`${article.url}`}</a>
-      {/* <Link to={`${article.url}`} target='_blank' rel='noreferrer' >{`${article.url}`}</Link> */}
+    <section className='article-details'>
+      <article className='image-and-caption'>
+        <img src={`${article.multimedia[1].url}`} alt={`${article.multimedia[1].caption}`} />
+        <div className='photo-caption'>
+          <small>{article.multimedia[1].caption}</small><br></br>
+          <small>© {article.multimedia[1].copyright}</small>
+        </div>
+      </article>
+      <article className='title-and-more'>
+        <h2>{article.title}</h2>
+        <p>{article.byline}</p>
+        <p className='published'>Published On: {article.published_date}</p>
+        <button onClick={() => window.open(`${article.url}`, '_blank')}>Read Full Article</button>
+      </article>
     </section>
   )
 };
