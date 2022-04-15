@@ -9,12 +9,14 @@ const Articles = ({ newsStories }) => {
         key={i}
         title={story.title}
         abstract={story.abstract}
-        subsection={story.subsection}
+        created_date={story.created_date}
+        multimedia={story.multimedia}
+        url={story.url}
       />
     )
   })
   return (
-    <section>
+    <section className='articles-container'>
       { news }
     </section>
   )
