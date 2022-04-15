@@ -12,6 +12,7 @@ const Articles = ({ newsStories }) => {
         created_date={story.created_date}
         multimedia={story.multimedia}
         url={story.url}
+        section={story.section}
       />
     )
   })
