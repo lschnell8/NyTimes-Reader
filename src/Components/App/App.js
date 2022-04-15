@@ -10,8 +10,8 @@ import ArticleDetails from '../ArticleDetails/ArticleDetails';
 const App = () => {
   const [newsStories, setNewsStories] = useState([]);
   const location = useLocation();
-  const currentTopic = location.pathname.split('/')
-  console.log('APP', currentTopic)
+  const currentTopic = location.pathname.split('/');
+  console.log('pathname', location.pathname)
   const [err, setError] = useState(0);
 
   useEffect(() => {
@@ -19,30 +19,34 @@ const App = () => {
       currentTopic[1] = 'home'
     }
     fetchData(currentTopic[1])
-      .then(data => {
-        setNewsStories([...data.results])
-        return newsStories
-      })
-      .catch(error => {
-        if (error >= 300) {
-          setError(error.status)
-        }
-        console.log(err)
-        return err
-      })
-      console.log('hello', newsStories)
-  }, [])
+    .then(response => {
+      if (response.ok) {
+        return response.json();
+      } else {
+        return response.status
+      }
+    })
+    .then(data => {
+      setNewsStories([...data.results])
+      return newsStories
+    })
+      .catch(error => { 
+      setError(error)
+      console.log('ERR', err)
+      return err
+    })
+    console.log('STORIES', currentTopic)
+  }, [location])
 
   const findDetails = () => {
+    console.log('CURRENT', currentTopic)
     if (!currentTopic[2]) {
       return 'Loading...'
     } else {
       let article = newsStories.find(story => {
-        console.log('STORY', story) 
         return story.created_date === currentTopic[2]
       });
-      console.log('FIND TOPIC', currentTopic[2])
-      console.log('FIND', article)
+      console.log('FIND ARTICLE', article)
       return article
     }
   }
@@ -54,7 +58,8 @@ const App = () => {
         <Route path='/' element={<Home />} >
           <Route path={`${currentTopic[1]}`} element={<Articles newsStories={newsStories} />} />
         </Route>
-        <Route path={`(${currentTopic[1]} || home)/${currentTopic[2]}`} element={<ArticleDetails article={ findDetails() }/> } />
+        <Route path={`${currentTopic[1]}/${currentTopic[2]}`} element={<ArticleDetails article={ findDetails() }/> } />
+        {/* <Route path={`:topic/${currentTopic[2]}`}  element={<ArticleDetails article={ findDetails() }/> } /> */}
         <Route path='*' element={err > 0 && <p> { err } Oops, there's trouble afoot. Please try again.</p> }/>
       </Routes>
     </main>
