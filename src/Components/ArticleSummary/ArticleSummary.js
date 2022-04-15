@@ -6,11 +6,13 @@ const ArticleSummary = ({ url, title, abstract, created_date, multimedia }) => {
     console.log('SKIP')
   } else {
     return (
-      <Link to={`${created_date}`}>
-        <h2>{title}</h2>
-        <p>{abstract}</p>
-        {multimedia?<img src={multimedia[2].url} alt={multimedia[2].caption} />:<p>No Image Available</p>}
-      </Link>
+      <article className='article-card'>
+        <Link to={`${created_date}`}>
+          <h3>{title}</h3>
+          <p>{abstract}</p>
+          {multimedia?<img src={multimedia[2].url} alt={multimedia[2].caption} />:<p>No Image Available</p>}
+        </Link>
+      </article>
     )
   }
 };
