@@ -1,0 +1,94 @@
+@use '../../Styles/variables' as variable;
+
+.article-topics {
+  margin: 2%;
+  text-align: center;
+
+  h2 {
+    font-size: 1.5em;
+    margin: 2%;
+  }
+  
+  nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+
+    a:link {
+      padding: 0 1em;
+      line-height: 1.5em;
+      color: variable.$black;
+    }
+
+    a:hover {
+      color: variable.$hoverBlue;
+    }
+  }
+}
+
+.articles-container {
+  padding: 2%;
+
+  .article-card {
+    background-color: variable.$blue;
+    margin: 2%;
+    padding: 2%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 0.5em;
+    box-shadow: 2px 2px 5px 3px #505050;
+
+    h3 {
+      font-size: 1.2em;
+      margin: 0.5em 0;
+    }
+
+    .title-details {
+      margin-right: 5%;
+    }
+
+    &:hover {
+      background-color: variable.$hoverBlue;
+      color: variable.$white;
+    }
+  }
+}
+
+/*
+##Device = Desktops
+##Screen = 1281px to higher resolution desktops
+*/
+
+@media (min-width: 1281px) {
+  .article-topics nav {
+    margin: 0 10%;
+  }
+}
+
+@media (min-width: 1025px) and (max-width: 1280px) {
+  .article-topics nav {
+    margin: 0 10%;
+  }
+}
+
+@media (min-width: 320px) and (max-width: 480px) {
+  .articles-container .article-card {
+    flex-direction: column;
+    text-align: center;
+
+    .title-details {
+      h3 {
+        font-size: 1em;
+      }
+
+      p {
+        font-size: 0.75em;
+      }
+    }
+
+    img {
+      margin: 10% 0;
+    }
+  }
+}
