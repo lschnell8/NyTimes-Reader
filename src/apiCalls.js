@@ -7,8 +7,4 @@ export const fetchData = (section) => {
         return response.status
       }
     })
-    .catch(error => {
-      console.log(error)
-      return error
-    })
 };
